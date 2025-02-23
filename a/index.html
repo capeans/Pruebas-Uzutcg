@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UzuTCG - Cartas Únicas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">UzuTCG</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="tienda.html">Tienda</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Cartas Únicas</h1>
+            <p>Descubre nuestra colección de cartas coleccionables</p>
+        </div>
+    </section>
+    <section class="categorias">
+        <h2>Categorías</h2>
+        <div class="categorias-grid">
+            <div class="categoria" onclick="window.location.href='pokemon.html'">Cartas de Pokémon</div>
+            <div class="categoria" onclick="window.location.href='onepiece.html'">One Piece</div>
+            <div class="categoria" onclick="window.location.href='digimon.html'">Digimon</div>
+        </div>
+    </section>
+    <section class="productos">
+        <h2>Productos</h2>
+        <div class="productos-grid">
+            <div class="producto">
+                <img src="Imagenes/charizar.jpg" alt="Carta de Pokémon" onclick="openModal(this)">
+                <p>Carta de Pokémon</p>
+                <p class="stock">Unidades disponibles: 10</p>
+                <p>€2.00</p>
+            </div>
+            <div class="producto">
+                <img src="Imagenes/charizar.jpg" alt="Cartas de Pokémon y más" onclick="openModal(this)">
+                <p>Carta de Pokémon y más</p>
+                <p class="stock">Unidades disponibles: 5</p>
+                <p>€15.00</p>
+            </div>
+            <div class="producto">
+                <img src="Imagenes/charizar.jpg" alt="Cartas de Pokémon y más" onclick="openModal(this)">
+                <p>Carta de Pokémon y más</p>
+                <p class="stock">Unidades disponibles: 5</p>
+                <p>€15.00</p>
+            </div>
+            <div class="producto">
+                <img src="Imagenes/charizar.jpg" alt="Cartas de Pokémon y más" onclick="openModal(this)">
+                <p>Carta de Pokémon y más</p>
+                <p class="stock">Unidades disponibles: 5</p>
+                <p>€15.00</p>
+                
+            </div>
+            <div class="producto">
+                <img src="Imagenes/charizar.jpg" alt="Cartas de Pokémon y más" onclick="openModal(this)">
+                <p>Carta de Pokémon y más</p>
+                <p class="stock">Unidades disponibles: 5</p>
+                <p>€15.00</p>
+            </div>
+            <div class="producto">
+                <img src="Imagenes/charizar.jpg" alt="Cartas de Pokémon y más" onclick="openModal(this)">
+                <p>Carta de Pokémon y más</p>
+                <p class="stock">Unidades disponibles: 5</p>
+                <p>€15.00</p>
+            </div>
+            <div class="producto">
+                <img src="Imagenes/charizar.jpg" alt="Cartas de Pokémon y más" onclick="openModal(this)">
+                <p>Carta de Pokémon y más</p>
+                <p class="stock">Unidades disponibles: 5</p>
+                <p>€15.00</p>
+            </div>
+            <div class="producto">
+                <img src="Imagenes/charizar.jpg" alt="Cartas de Pokémon y más" onclick="openModal(this)">
+                <p>Carta de Pokémon y más</p>
+                <p class="stock">Unidades disponibles: 5</p>
+                <p>€15.00</p>
+            </div>
+            <div class="producto">
+                <img src="Imagenes/charizar.jpg" alt="Cartas de Pokémon y más" onclick="openModal(this)">
+                <p>Carta de Pokémon y más</p>
+                <p class="stock">Unidades disponibles: 5</p>
+                <p>€15.00</p>
+            </div>
+            <div class="producto">
+                <img src="Imagenes/charizar.jpg" alt="Cartas de Pokémon y más" onclick="openModal(this)">
+                <p>Carta de Pokémon y más</p>
+                <p class="stock">Unidades disponibles: 5</p>
+                <p>€15.00</p>
+            </div>
+        </div>
+    </section>
+    <div class="modal" id="modal" onclick="closeModal()">
+        <img id="modal-img" src="">
+    </div>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 UzuTCG. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        function openModal(img) {
+            document.getElementById("modal-img").src = img.src;
+            document.getElementById("modal").classList.add("active");
+        }
+        function closeModal() {
+            document.getElementById("modal").classList.remove("active");
+        }
+    </script>
+</body>
+</html>
