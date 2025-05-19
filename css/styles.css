@@ -251,7 +251,7 @@ aside input[type="range"] {
 
 
 
-/* Carrusel funcional horizontal */
+/* Carrusel horizontal funcional */
 .carousel-container {
   position: relative;
   margin: 2em auto;
@@ -259,20 +259,16 @@ aside input[type="range"] {
   max-width: 1300px;
   overflow: hidden;
 }
-
 .carousel-track {
   display: flex;
-  flex-wrap: nowrap;
   overflow-x: auto;
   scroll-behavior: smooth;
   gap: 1.5em;
   padding: 1em 0;
 }
-
 .carousel-track::-webkit-scrollbar {
   display: none;
 }
-
 .carousel-track > .producto,
 .carousel-track > .category-img {
   flex: 0 0 auto;
@@ -282,14 +278,11 @@ aside input[type="range"] {
   transition: transform 0.4s ease, opacity 0.4s ease;
   text-align: center;
 }
-
-.carousel-track > .producto img,
-.carousel-track > .category-img img {
+.carousel-track img {
   width: 100%;
   height: auto;
   border-radius: 8px;
 }
-
 .carousel-btn {
   position: absolute;
   top: 40%;
@@ -305,9 +298,3 @@ aside input[type="range"] {
 }
 .carousel-btn.left { left: 0.5em; }
 .carousel-btn.right { right: 0.5em; }
-
-.category-img:hover img,
-.producto:hover img {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
-}

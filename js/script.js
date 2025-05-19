@@ -1,5 +1,4 @@
-
-let productos = [];
+let productos = []; // global
 
 document.addEventListener('DOMContentLoaded', () => {
   fetch('data/productos.json')
@@ -16,8 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'productos-todo'
       );
 
-      if (!contenedor) return;
-
       const filtroNombre = document.getElementById('filtro-nombre');
       const filtroCategoria = document.getElementById('filtro-categoria');
       const filtroPrecio = document.getElementById('filtro-precio');
@@ -29,11 +26,22 @@ document.addEventListener('DOMContentLoaded', () => {
         (esCartas && p.tipo === 'carta') ||
         esTodo
       );
+      const productosOriginales = [...productos];
+
+      const params = new URLSearchParams(window.location.search);
+      const categoriaInicial = params.get('categoria')?.toLowerCase();
+
+      let productosMostrados = [...productosOriginales];
+      if (categoriaInicial) {
+        productosMostrados = productosOriginales.filter(p =>
+          p.categoria.toLowerCase().replace(/ /g, "-") === categoriaInicial
+        );
+      }
 
       const render = (lista) => {
         contenedor.innerHTML = lista.map(p => `
           <div class="producto">
-            <img src="${p.imagen}" alt="${p.nombre}" style="cursor:zoom-in;" onclick="abrirImagenGrande('${p.imagen}')">
+            <img src="${p.imagen}" alt="${p.nombre}" onclick="abrirImagenGrande('${p.imagen}')" style="cursor:zoom-in;">
             <h3>${p.nombre}</h3>
             <p><strong>Categoría:</strong> ${p.categoria}</p>
             <p><strong>Idioma:</strong> ${p.idioma}</p>
@@ -44,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       const aplicarFiltros = () => {
-        let filtrados = [...productos];
+        let filtrados = [...productosOriginales];
         const q = filtroNombre?.value.toLowerCase() || "";
         const cat = filtroCategoria?.value.toLowerCase() || "";
         const idioma = filtroIdioma?.value.toLowerCase() || "";
@@ -58,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         render(filtrados);
       };
 
-      render(productos);
+      render(productosMostrados);
 
       filtroNombre?.addEventListener('input', aplicarFiltros);
       filtroCategoria?.addEventListener('change', aplicarFiltros);
@@ -88,11 +96,12 @@ function abrirImagenGrande(src) {
     <div style="display: flex; gap: 2em; align-items: flex-start; max-width: 90vw; background: white; border-radius: 12px; padding: 2em;">
       <img src="${src}" style="width: 400px; height: 400px; object-fit: contain; border-radius: 12px; background: #f4f4f4;">
       <div style="color: #111; max-width: 400px;">
-        <h2>${producto.nombre}</h2>
+        <h2 style="margin-top: 0;">${producto.nombre}</h2>
         <p><strong>Categoría:</strong> ${producto.categoria}</p>
         <p><strong>Idioma:</strong> ${producto.idioma}</p>
         <p><strong>Precio:</strong> ${producto.precio}€</p>
         <p><strong>Stock:</strong> ${producto.stock > 0 ? 'Disponible' : 'Agotado'}</p>
+        <p><strong>Abrir en directo:</strong> ${producto.abrirEnDirecto ? 'Sí' : 'No'}</p>
         <hr>
         <p>${producto.descripcion || 'Sin descripción disponible.'}</p>
       </div>
@@ -101,3 +110,29 @@ function abrirImagenGrande(src) {
   overlay.addEventListener("click", () => document.body.removeChild(overlay));
   document.body.appendChild(overlay);
 }
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".carousel-container").forEach(container => {
+    const track = container.querySelector(".carousel-track");
+    const left = container.querySelector(".carousel-btn.left");
+    const right = container.querySelector(".carousel-btn.right");
+
+    left?.addEventListener("click", () => {
+      if (track.scrollLeft <= 0) {
+        track.scrollLeft = track.scrollWidth;
+      } else {
+        track.scrollBy({ left: -300, behavior: "smooth" });
+      }
+    });
+
+    right?.addEventListener("click", () => {
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+        track.scrollLeft = 0;
+      } else {
+        track.scrollBy({ left: 300, behavior: "smooth" });
+      }
+    });
+  });
+});
