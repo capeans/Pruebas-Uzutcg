@@ -1,35 +1,6 @@
+let productos = []; // global
 
-let productos = [];
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Carruseles
-  document.querySelectorAll(".carousel-container").forEach(container => {
-    const track = container.querySelector(".carousel-track");
-    const leftBtn = container.querySelector(".carousel-btn.left");
-    const rightBtn = container.querySelector(".carousel-btn.right");
-
-    if (!track || !leftBtn || !rightBtn) return;
-
-    leftBtn.addEventListener("click", () => {
-      const scrollAmount = track.clientWidth * 0.8;
-      if (track.scrollLeft <= 0) {
-        track.scrollLeft = track.scrollWidth;
-      } else {
-        track.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-      }
-    });
-
-    rightBtn.addEventListener("click", () => {
-      const scrollAmount = track.clientWidth * 0.8;
-      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
-        track.scrollLeft = 0;
-      } else {
-        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      }
-    });
-  });
-
-  // Productos (cajas/cartas/todo)
+document.addEventListener('DOMContentLoaded', () => {
   fetch('data/productos.json')
     .then(res => res.json())
     .then(data => {
@@ -44,32 +15,34 @@ document.addEventListener("DOMContentLoaded", () => {
         'productos-todo'
       );
 
-      if (!contenedor) return;
-
       const filtroNombre = document.getElementById('filtro-nombre');
       const filtroCategoria = document.getElementById('filtro-categoria');
       const filtroPrecio = document.getElementById('filtro-precio');
       const precioValor = document.getElementById('precio-valor');
       const filtroIdioma = document.getElementById('filtro-idioma');
 
-      
-      const params = new URLSearchParams(window.location.search);
-      const categoriaInicial = params.get('categoria');
-      if (categoriaInicial && filtroCategoria) {
-        filtroCategoria.value = categoriaInicial.replace(/-/g, " ");
-      }
-
-
       productos = data.filter(p =>
         (esCajas && p.tipo === 'caja') ||
         (esCartas && p.tipo === 'carta') ||
         esTodo
       );
+      const productosOriginales = [...productos];
+
+      const params = new URLSearchParams(window.location.search);
+      const categoriaInicial = params.get('categoria')?.toLowerCase();
+
+      let productosMostrados = [...productosOriginales];
+      if (categoriaInicial) {
+        productosMostrados = productosOriginales.filter(p =>
+          p.categoria.toLowerCase().replace(/ /g, "-") === categoriaInicial
+        );
+        if (filtroCategoria) filtroCategoria.value = categoriaInicial.replace(/-/g, " ");
+      }
 
       const render = (lista) => {
         contenedor.innerHTML = lista.map(p => `
           <div class="producto">
-            <img src="${p.imagen}" alt="${p.nombre}" style="cursor:zoom-in;" onclick="abrirImagenGrande('${p.imagen}')">
+            <img src="${p.imagen}" alt="${p.nombre}" onclick="abrirImagenGrande('${p.imagen}')" style="cursor:zoom-in;">
             <h3>${p.nombre}</h3>
             <p><strong>Categoría:</strong> ${p.categoria}</p>
             <p><strong>Idioma:</strong> ${p.idioma}</p>
@@ -80,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       const aplicarFiltros = () => {
-        let filtrados = [...productos];
+        let filtrados = [...productosOriginales];
         const q = filtroNombre?.value.toLowerCase() || "";
         const cat = filtroCategoria?.value.toLowerCase() || "";
         const idioma = filtroIdioma?.value.toLowerCase() || "";
@@ -94,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         render(filtrados);
       };
 
-      render(productos);
+      render(productosMostrados);
 
       filtroNombre?.addEventListener('input', aplicarFiltros);
       filtroCategoria?.addEventListener('change', aplicarFiltros);
@@ -106,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Imagen grande al hacer clic
 function abrirImagenGrande(src) {
   const producto = productos.find(p => p.imagen === src);
   const overlay = document.createElement("div");
@@ -125,7 +97,7 @@ function abrirImagenGrande(src) {
     <div style="display: flex; gap: 2em; align-items: flex-start; max-width: 90vw; background: white; border-radius: 12px; padding: 2em;">
       <img src="${src}" style="width: 400px; height: 400px; object-fit: contain; border-radius: 12px; background: #f4f4f4;">
       <div style="color: #111; max-width: 400px;">
-        <h2>${producto.nombre}</h2>
+        <h2 style="margin-top: 0;">${producto.nombre}</h2>
         <p><strong>Categoría:</strong> ${producto.categoria}</p>
         <p><strong>Idioma:</strong> ${producto.idioma}</p>
         <p><strong>Precio:</strong> ${producto.precio}€</p>
