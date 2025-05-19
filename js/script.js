@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
         track.scrollLeft = track.scrollWidth;
       } else {
         track.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-      }
-    });
-
-    rightBtn.addEventListener("click", () => {
+  // AUTOPLAY
+  setInterval(() => {
+    document.querySelectorAll(".carousel-container").forEach(container => {
+      const track = container.querySelector(".carousel-track");
       const scrollAmount = track.clientWidth * 0.8;
       if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
         track.scrollLeft = 0;
@@ -27,7 +27,72 @@ document.addEventListener("DOMContentLoaded", () => {
         track.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
     });
+  }, 4000); // cada 4 segundos
+
+      }
+    });
+  // AUTOPLAY
+  setInterval(() => {
+    document.querySelectorAll(".carousel-container").forEach(container => {
+      const track = container.querySelector(".carousel-track");
+      const scrollAmount = track.clientWidth * 0.8;
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
+        track.scrollLeft = 0;
+      } else {
+        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    });
+  }, 4000); // cada 4 segundos
+
+
+    rightBtn.addEventListener("click", () => {
+      const scrollAmount = track.clientWidth * 0.8;
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
+        track.scrollLeft = 0;
+      } else {
+        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  // AUTOPLAY
+  setInterval(() => {
+    document.querySelectorAll(".carousel-container").forEach(container => {
+      const track = container.querySelector(".carousel-track");
+      const scrollAmount = track.clientWidth * 0.8;
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
+        track.scrollLeft = 0;
+      } else {
+        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    });
+  }, 4000); // cada 4 segundos
+
+      }
+    });
+  // AUTOPLAY
+  setInterval(() => {
+    document.querySelectorAll(".carousel-container").forEach(container => {
+      const track = container.querySelector(".carousel-track");
+      const scrollAmount = track.clientWidth * 0.8;
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
+        track.scrollLeft = 0;
+      } else {
+        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    });
+  }, 4000); // cada 4 segundos
+
   });
+  // AUTOPLAY
+  setInterval(() => {
+    document.querySelectorAll(".carousel-container").forEach(container => {
+      const track = container.querySelector(".carousel-track");
+      const scrollAmount = track.clientWidth * 0.8;
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
+        track.scrollLeft = 0;
+      } else {
+        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    });
+  }, 4000); // cada 4 segundos
+
 
   // Productos (cajas/cartas/todo)
   fetch('data/productos.json')
@@ -95,8 +160,47 @@ document.addEventListener("DOMContentLoaded", () => {
         precioValor.textContent = filtroPrecio.value;
         aplicarFiltros();
       });
+  // AUTOPLAY
+  setInterval(() => {
+    document.querySelectorAll(".carousel-container").forEach(container => {
+      const track = container.querySelector(".carousel-track");
+      const scrollAmount = track.clientWidth * 0.8;
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
+        track.scrollLeft = 0;
+      } else {
+        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
     });
+  }, 4000); // cada 4 segundos
+
+    });
+  // AUTOPLAY
+  setInterval(() => {
+    document.querySelectorAll(".carousel-container").forEach(container => {
+      const track = container.querySelector(".carousel-track");
+      const scrollAmount = track.clientWidth * 0.8;
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
+        track.scrollLeft = 0;
+      } else {
+        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    });
+  }, 4000); // cada 4 segundos
+
 });
+  // AUTOPLAY
+  setInterval(() => {
+    document.querySelectorAll(".carousel-container").forEach(container => {
+      const track = container.querySelector(".carousel-track");
+      const scrollAmount = track.clientWidth * 0.8;
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
+        track.scrollLeft = 0;
+      } else {
+        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    });
+  }, 4000); // cada 4 segundos
+
 
 // Imagen grande al hacer clic
 function abrirImagenGrande(src) {
