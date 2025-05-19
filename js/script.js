@@ -15,72 +15,19 @@ document.addEventListener("DOMContentLoaded", () => {
       if (track.scrollLeft <= 0) {
         track.scrollLeft = track.scrollWidth;
       } else {
-  // AUTOPLAY
-    document.querySelectorAll(".carousel-container").forEach(container => {
-      const track = container.querySelector(".carousel-track");
-      const scrollAmount = track.clientWidth * 0.8;
-      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
-        track.scrollLeft = 0;
-      } else {
+        track.scrollBy({ left: -scrollAmount, behavior: "smooth" });
       }
     });
-  }, 4000); // cada 4 segundos
-
-      }
-    });
-  // AUTOPLAY
-    document.querySelectorAll(".carousel-container").forEach(container => {
-      const track = container.querySelector(".carousel-track");
-      const scrollAmount = track.clientWidth * 0.8;
-      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
-        track.scrollLeft = 0;
-      } else {
-      }
-    });
-  }, 4000); // cada 4 segundos
-
 
     rightBtn.addEventListener("click", () => {
       const scrollAmount = track.clientWidth * 0.8;
       if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
         track.scrollLeft = 0;
       } else {
-  // AUTOPLAY
-    document.querySelectorAll(".carousel-container").forEach(container => {
-      const track = container.querySelector(".carousel-track");
-      const scrollAmount = track.clientWidth * 0.8;
-      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
-        track.scrollLeft = 0;
-      } else {
+        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
     });
-  }, 4000); // cada 4 segundos
-
-      }
-    });
-  // AUTOPLAY
-    document.querySelectorAll(".carousel-container").forEach(container => {
-      const track = container.querySelector(".carousel-track");
-      const scrollAmount = track.clientWidth * 0.8;
-      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
-        track.scrollLeft = 0;
-      } else {
-      }
-    });
-  }, 4000); // cada 4 segundos
-
   });
-  // AUTOPLAY
-    document.querySelectorAll(".carousel-container").forEach(container => {
-      const track = container.querySelector(".carousel-track");
-      const scrollAmount = track.clientWidth * 0.8;
-      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
-        track.scrollLeft = 0;
-      } else {
-      }
-    });
-  }, 4000); // cada 4 segundos
-
 
   // Productos (cajas/cartas/todo)
   fetch('data/productos.json')
@@ -104,14 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const filtroPrecio = document.getElementById('filtro-precio');
       const precioValor = document.getElementById('precio-valor');
       const filtroIdioma = document.getElementById('filtro-idioma');
-
-      
-      const params = new URLSearchParams(window.location.search);
-      const categoriaInicial = params.get('categoria');
-      if (categoriaInicial && filtroCategoria) {
-        filtroCategoria.value = categoriaInicial.replace(/-/g, " ");
-      }
-    
 
       productos = data.filter(p =>
         (esCajas && p.tipo === 'caja') ||
@@ -156,41 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
         precioValor.textContent = filtroPrecio.value;
         aplicarFiltros();
       });
-  // AUTOPLAY
-    document.querySelectorAll(".carousel-container").forEach(container => {
-      const track = container.querySelector(".carousel-track");
-      const scrollAmount = track.clientWidth * 0.8;
-      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
-        track.scrollLeft = 0;
-      } else {
-      }
     });
-  }, 4000); // cada 4 segundos
-
-    });
-  // AUTOPLAY
-    document.querySelectorAll(".carousel-container").forEach(container => {
-      const track = container.querySelector(".carousel-track");
-      const scrollAmount = track.clientWidth * 0.8;
-      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
-        track.scrollLeft = 0;
-      } else {
-      }
-    });
-  }, 4000); // cada 4 segundos
-
 });
-  // AUTOPLAY
-    document.querySelectorAll(".carousel-container").forEach(container => {
-      const track = container.querySelector(".carousel-track");
-      const scrollAmount = track.clientWidth * 0.8;
-      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
-        track.scrollLeft = 0;
-      } else {
-      }
-    });
-  }, 4000); // cada 4 segundos
-
 
 // Imagen grande al hacer clic
 function abrirImagenGrande(src) {
