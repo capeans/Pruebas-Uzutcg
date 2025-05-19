@@ -348,3 +348,26 @@ aside input[type="range"] {
 }
 .carousel-btn.left { left: -2em; }
 .carousel-btn.right { right: -2em; }
+
+
+/* Carrusel: Asegurar visibilidad de flechas */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0.4em 0.6em;
+  z-index: 99;
+}
+
+.carousel-btn.left {
+  left: 0;
+}
+.carousel-btn.right {
+  right: 0;
+}
