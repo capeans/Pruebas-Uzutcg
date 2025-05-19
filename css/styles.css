@@ -298,3 +298,35 @@ aside input[type="range"] {
 }
 .carousel-btn.left { left: 0.5em; }
 .carousel-btn.right { right: 0.5em; }
+
+
+/* Ajuste de carrusel para flechas externas */
+.carousel-container {
+  position: relative;
+  margin: 2em auto;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 3em;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+  padding: 0.3em 0.6em;
+}
+
+.carousel-btn.left {
+  left: -1em;
+}
+
+.carousel-btn.right {
+  right: -1em;
+}
