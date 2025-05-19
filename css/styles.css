@@ -283,21 +283,6 @@ aside input[type="range"] {
   height: auto;
   border-radius: 8px;
 }
-.carousel-btn {
-  position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.6);
-  color: white;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 2;
-  border-radius: 50%;
-  padding: 0.3em 0.6em;
-}
-.carousel-btn.left { left: 0.5em; }
-.carousel-btn.right { right: 0.5em; }
 
 .carousel-btn {
   position: absolute;
