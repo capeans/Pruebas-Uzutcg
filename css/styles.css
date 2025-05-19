@@ -248,3 +248,47 @@ aside input[type="range"] {
 .body-footer-fijo main {
   flex: 1;
 }
+
+
+
+/* Carrusel de categorías */
+.carousel-container {
+  position: relative;
+  margin: 2em auto;
+  overflow: hidden;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1em;
+  padding: 1em 0;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #333;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.2em 0.5em;
+  z-index: 10;
+}
+
+.carousel-btn.left {
+  left: 0;
+}
+
+.carousel-btn.right {
+  right: 0;
+}

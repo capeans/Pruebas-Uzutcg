@@ -111,3 +111,21 @@ function abrirImagenGrande(src) {
   document.body.appendChild(overlay);
 }
 
+
+
+// Carrusel de categorías
+document.addEventListener("DOMContentLoaded", function () {
+  const leftBtn = document.querySelector(".carousel-btn.left");
+  const rightBtn = document.querySelector(".carousel-btn.right");
+  const track = document.querySelector(".carousel-track");
+
+  if (leftBtn && rightBtn && track) {
+    leftBtn.addEventListener("click", () => {
+      track.scrollBy({ left: -300, behavior: "smooth" });
+    });
+
+    rightBtn.addEventListener("click", () => {
+      track.scrollBy({ left: 300, behavior: "smooth" });
+    });
+  }
+});
