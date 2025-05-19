@@ -20,19 +20,27 @@
 </nav>
 </header>
 <main style="max-width: 1200px; margin: auto; padding: 2em;">
-<h1>Artículos de Tienda</h1>
+<div id="filtro-tienda" style="margin-bottom: 2em;">
+<label for="tipo-articulo"><strong>Filtrar por tipo:</strong></label>
+<select id="tipo-articulo" onchange="filtrarTienda()">
+<option value="">Todos</option>
+<option value="box">Box</option>
+<option value="sobre">Sobre</option>
+<option value="álbum">Álbum</option>
+</select>
+</div><h1>Artículos de Tienda</h1>
 <div class="grid" style="gap: 2em; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
-<div class="producto">
+<div class="producto" data-tipo="box">
 <img alt="Box Pokémon" src="img/cajas/magic/1.png"/>
 <h3>Box Pokémon</h3>
 <p><strong>Precio:</strong> 49,99 €</p>
 </div>
-<div class="producto">
+<div class="producto" data-tipo="sobre">
 <img alt="Sobre Digimon" src="img/cajas/magic/2.png"/>
 <h3>Sobre Digimon</h3>
 <p><strong>Precio:</strong> 4,99 €</p>
 </div>
-<div class="producto">
+<div class="producto" data-tipo="álbum">
 <img alt="Álbum One Piece" src="img/cajas/dragonball/1.png"/>
 <h3>Álbum One Piece</h3>
 <p><strong>Precio:</strong> 12,00 €</p>
@@ -42,5 +50,13 @@
 <footer>
     © 2025 Uzutcg - Todos los derechos reservados
   </footer>
-</body>
+<script>
+function filtrarTienda() {
+  const tipo = document.getElementById("tipo-articulo").value;
+  document.querySelectorAll(".producto").forEach(p => {
+    const tipoProducto = p.dataset.tipo || "";
+    p.style.display = (!tipo || tipoProducto === tipo) ? "block" : "none";
+  });
+}
+</script></body>
 </html>

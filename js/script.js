@@ -15,16 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (track.scrollLeft <= 0) {
         track.scrollLeft = track.scrollWidth;
       } else {
-        track.scrollBy({ left: -scrollAmount, behavior: "smooth" });
   // AUTOPLAY
-  setInterval(() => {
     document.querySelectorAll(".carousel-container").forEach(container => {
       const track = container.querySelector(".carousel-track");
       const scrollAmount = track.clientWidth * 0.8;
       if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
         track.scrollLeft = 0;
       } else {
-        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
     });
   }, 4000); // cada 4 segundos
@@ -32,14 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   // AUTOPLAY
-  setInterval(() => {
     document.querySelectorAll(".carousel-container").forEach(container => {
       const track = container.querySelector(".carousel-track");
       const scrollAmount = track.clientWidth * 0.8;
       if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
         track.scrollLeft = 0;
       } else {
-        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
     });
   }, 4000); // cada 4 segundos
@@ -50,16 +45,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
         track.scrollLeft = 0;
       } else {
-        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
   // AUTOPLAY
-  setInterval(() => {
     document.querySelectorAll(".carousel-container").forEach(container => {
       const track = container.querySelector(".carousel-track");
       const scrollAmount = track.clientWidth * 0.8;
       if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
         track.scrollLeft = 0;
       } else {
-        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
     });
   }, 4000); // cada 4 segundos
@@ -67,28 +59,24 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   // AUTOPLAY
-  setInterval(() => {
     document.querySelectorAll(".carousel-container").forEach(container => {
       const track = container.querySelector(".carousel-track");
       const scrollAmount = track.clientWidth * 0.8;
       if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
         track.scrollLeft = 0;
       } else {
-        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
     });
   }, 4000); // cada 4 segundos
 
   });
   // AUTOPLAY
-  setInterval(() => {
     document.querySelectorAll(".carousel-container").forEach(container => {
       const track = container.querySelector(".carousel-track");
       const scrollAmount = track.clientWidth * 0.8;
       if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
         track.scrollLeft = 0;
       } else {
-        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
     });
   }, 4000); // cada 4 segundos
@@ -169,42 +157,36 @@ document.addEventListener("DOMContentLoaded", () => {
         aplicarFiltros();
       });
   // AUTOPLAY
-  setInterval(() => {
     document.querySelectorAll(".carousel-container").forEach(container => {
       const track = container.querySelector(".carousel-track");
       const scrollAmount = track.clientWidth * 0.8;
       if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
         track.scrollLeft = 0;
       } else {
-        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
     });
   }, 4000); // cada 4 segundos
 
     });
   // AUTOPLAY
-  setInterval(() => {
     document.querySelectorAll(".carousel-container").forEach(container => {
       const track = container.querySelector(".carousel-track");
       const scrollAmount = track.clientWidth * 0.8;
       if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
         track.scrollLeft = 0;
       } else {
-        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
     });
   }, 4000); // cada 4 segundos
 
 });
   // AUTOPLAY
-  setInterval(() => {
     document.querySelectorAll(".carousel-container").forEach(container => {
       const track = container.querySelector(".carousel-track");
       const scrollAmount = track.clientWidth * 0.8;
       if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
         track.scrollLeft = 0;
       } else {
-        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
     });
   }, 4000); // cada 4 segundos
