@@ -129,3 +129,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+
+// Carruseles múltiples en la misma página
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".carousel-container").forEach(container => {
+    const track = container.querySelector(".carousel-track");
+    const leftBtn = container.querySelector(".carousel-btn.left");
+    const rightBtn = container.querySelector(".carousel-btn.right");
+
+    leftBtn.addEventListener("click", () => {
+      track.scrollBy({ left: -300, behavior: "smooth" });
+    });
+
+    rightBtn.addEventListener("click", () => {
+      track.scrollBy({ left: 300, behavior: "smooth" });
+    });
+  });
+});
