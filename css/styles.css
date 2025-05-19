@@ -292,3 +292,42 @@ aside input[type="range"] {
 .carousel-btn.right {
   right: 0;
 }
+
+
+
+/* Carrusel 3D tipo cover flow */
+.carousel-3d .carousel-track {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  gap: 2em;
+  padding: 2em 0;
+  position: relative;
+}
+
+.carousel-3d .category-img {
+  flex: 0 0 auto;
+  transform-origin: center center;
+  transition: transform 0.5s ease, z-index 0.5s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.carousel-3d .category-img img {
+  width: 140px;
+  transition: transform 0.5s ease;
+}
+
+.carousel-3d .carousel-track:hover .category-img {
+  transform: scale(0.7) rotateY(40deg);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.carousel-3d .carousel-track:hover .category-img:hover {
+  transform: scale(1.2) rotateY(0deg);
+  opacity: 1;
+  z-index: 10;
+}
