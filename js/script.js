@@ -111,3 +111,29 @@ function abrirImagenGrande(src) {
   overlay.addEventListener("click", () => document.body.removeChild(overlay));
   document.body.appendChild(overlay);
 }
+
+  // Carruseles con scroll circular
+  document.querySelectorAll(".carousel-container").forEach(container => {
+    const track = container.querySelector(".carousel-track");
+    const left = container.querySelector(".carousel-btn.left");
+    const right = container.querySelector(".carousel-btn.right");
+
+    if (!track || !left || !right) return;
+
+    left.addEventListener("click", () => {
+      if (track.scrollLeft <= 0) {
+        track.scrollLeft = track.scrollWidth;
+      } else {
+        track.scrollBy({ left: -300, behavior: "smooth" });
+      }
+    });
+
+    right.addEventListener("click", () => {
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
+        track.scrollLeft = 0;
+      } else {
+        track.scrollBy({ left: 300, behavior: "smooth" });
+      }
+    });
+  });
+
