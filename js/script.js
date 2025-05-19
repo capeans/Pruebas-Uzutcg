@@ -113,36 +113,17 @@ function abrirImagenGrande(src) {
 
 
 
-// Carrusel de categorías
-document.addEventListener("DOMContentLoaded", function () {
-  const leftBtn = document.querySelector(".carousel-btn.left");
-  const rightBtn = document.querySelector(".carousel-btn.right");
-  const track = document.querySelector(".carousel-track");
-
-  if (leftBtn && rightBtn && track) {
-    leftBtn.addEventListener("click", () => {
-      track.scrollBy({ left: -300, behavior: "smooth" });
-    });
-
-    rightBtn.addEventListener("click", () => {
-      track.scrollBy({ left: 300, behavior: "smooth" });
-    });
-  }
-});
-
-
-// Carruseles múltiples en la misma página
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".carousel-container").forEach(container => {
     const track = container.querySelector(".carousel-track");
-    const leftBtn = container.querySelector(".carousel-btn.left");
-    const rightBtn = container.querySelector(".carousel-btn.right");
+    const left = container.querySelector(".carousel-btn.left");
+    const right = container.querySelector(".carousel-btn.right");
 
-    leftBtn.addEventListener("click", () => {
+    left?.addEventListener("click", () => {
       track.scrollBy({ left: -300, behavior: "smooth" });
     });
 
-    rightBtn.addEventListener("click", () => {
+    right?.addEventListener("click", () => {
       track.scrollBy({ left: 300, behavior: "smooth" });
     });
   });
