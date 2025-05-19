@@ -1,45 +1,36 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Carrusel funcional
-  document.querySelectorAll(".carousel-container").forEach(container => {
-    const track = container.querySelector(".carousel-track");
-    const left = container.querySelector(".carousel-btn.left");
-    const right = container.querySelector(".carousel-btn.right");
+let productos = []; // global
 
-    left?.addEventListener("click", () => {
-      track.scrollBy({ left: -300, behavior: "smooth" });
-    });
-    right?.addEventListener("click", () => {
-      track.scrollBy({ left: 300, behavior: "smooth" });
-    });
-  });
-
-  // Carga y filtro de productos
-  fetch("data/productos.json")
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('data/productos.json')
     .then(res => res.json())
     .then(data => {
       const pagina = document.body.dataset.page;
+      const esCajas = pagina === 'cajas';
+      const esCartas = pagina === 'cartas';
+      const esTodo = pagina === 'todo';
+
       const contenedor = document.getElementById(
-        pagina === 'cajas' ? 'productos-cajas' :
-        pagina === 'cartas' ? 'productos-cartas' :
+        esCajas ? 'productos-cajas' :
+        esCartas ? 'productos-cartas' :
         'productos-todo'
       );
 
-      const filtroCategoria = document.getElementById("filtro-categoria");
-      const filtroNombre = document.getElementById("filtro-nombre");
-      const filtroIdioma = document.getElementById("filtro-idioma");
-      const filtroPrecio = document.getElementById("filtro-precio");
-      const precioValor = document.getElementById("precio-valor");
+      const filtroNombre = document.getElementById('filtro-nombre');
+      const filtroCategoria = document.getElementById('filtro-categoria');
+      const filtroPrecio = document.getElementById('filtro-precio');
+      const precioValor = document.getElementById('precio-valor');
+      const filtroIdioma = document.getElementById('filtro-idioma');
 
-      let productos = data.filter(p =>
-        (pagina === 'cajas' && p.tipo === 'caja') ||
-        (pagina === 'cartas' && p.tipo === 'carta') ||
-        pagina === 'todo'
+      productos = data.filter(p =>
+        (esCajas && p.tipo === 'caja') ||
+        (esCartas && p.tipo === 'carta') ||
+        esTodo
       );
       const productosOriginales = [...productos];
 
-      // Filtrar por URL si hay categoria
       const params = new URLSearchParams(window.location.search);
-      const categoriaInicial = params.get("categoria")?.toLowerCase();
+      const categoriaInicial = params.get('categoria')?.toLowerCase();
+
       let productosMostrados = [...productosOriginales];
       if (categoriaInicial) {
         productosMostrados = productosOriginales.filter(p =>
@@ -77,12 +68,45 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       render(productosMostrados);
-      filtroNombre?.addEventListener("input", aplicarFiltros);
-      filtroCategoria?.addEventListener("change", aplicarFiltros);
-      filtroIdioma?.addEventListener("change", aplicarFiltros);
-      filtroPrecio?.addEventListener("input", () => {
+
+      filtroNombre?.addEventListener('input', aplicarFiltros);
+      filtroCategoria?.addEventListener('change', aplicarFiltros);
+      filtroIdioma?.addEventListener('change', aplicarFiltros);
+      filtroPrecio?.addEventListener('input', () => {
         precioValor.textContent = filtroPrecio.value;
         aplicarFiltros();
       });
     });
 });
+
+function abrirImagenGrande(src) {
+  const producto = productos.find(p => p.imagen === src);
+  const overlay = document.createElement("div");
+  overlay.style.position = "fixed";
+  overlay.style.top = 0;
+  overlay.style.left = 0;
+  overlay.style.width = "100vw";
+  overlay.style.height = "100vh";
+  overlay.style.background = "rgba(0,0,0,0.85)";
+  overlay.style.display = "flex";
+  overlay.style.alignItems = "center";
+  overlay.style.justifyContent = "center";
+  overlay.style.zIndex = 1000;
+  overlay.style.padding = "2em";
+  overlay.innerHTML = `
+    <div style="display: flex; gap: 2em; align-items: flex-start; max-width: 90vw; background: white; border-radius: 12px; padding: 2em;">
+      <img src="${src}" style="width: 400px; height: 400px; object-fit: contain; border-radius: 12px; background: #f4f4f4;">
+      <div style="color: #111; max-width: 400px;">
+        <h2>${producto.nombre}</h2>
+        <p><strong>Categoría:</strong> ${producto.categoria}</p>
+        <p><strong>Idioma:</strong> ${producto.idioma}</p>
+        <p><strong>Precio:</strong> ${producto.precio}€</p>
+        <p><strong>Stock:</strong> ${producto.stock > 0 ? 'Disponible' : 'Agotado'}</p>
+        <hr>
+        <p>${producto.descripcion || 'Sin descripción disponible.'}</p>
+      </div>
+    </div>
+  `;
+  overlay.addEventListener("click", () => document.body.removeChild(overlay));
+  document.body.appendChild(overlay);
+}
