@@ -5,7 +5,29 @@
 <meta charset="utf-8"/>
 <title>Todo - Uzutcg</title>
 <link href="css/styles.css" rel="stylesheet"/>
-<script defer="" src="js/script.js"></script>
+<script defer="" src="js/script.js">
+document.addEventListener("DOMContentLoaded", () => {
+  const botones = document.querySelectorAll('#botones-categorias button');
+  const select = document.getElementById('filtro-categoria');
+
+  function resaltarBotonActivo(valor) {
+    botones.forEach(btn => {
+      const cat = btn.textContent.toLowerCase().replace(/ /g, '-');
+      btn.style.background = (cat === valor) ? '#f0b400' : '#111';
+    });
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const categoriaURL = params.get('categoria');
+  if (categoriaURL) {
+    resaltarBotonActivo(categoriaURL);
+  }
+
+  select?.addEventListener('change', () => {
+    resaltarBotonActivo(select.value.replace(/ /g, '-'));
+  });
+});
+</script>
 </head>
 <body class="body-footer-fijo" data-page="todo">
 <header>
@@ -43,7 +65,7 @@
 </select>
 <label>Precio máx: <span id="precio-valor">1000</span> €</label>
 <input id="filtro-precio" max="1000" min="0" type="range" value="1000"/>
-</aside>
+</aside><div id="botones-categorias" style="margin-bottom: 2em; display: flex; flex-wrap: wrap; gap: 0.5em;"><button id="btn-todo" onclick="document.getElementById('filtro-categoria').value=''; document.getElementById('filtro-categoria').dispatchEvent(new Event('change'))" style="padding: 0.6em 1.2em; border: none; border-radius: 6px; background: #444; color: white; cursor: pointer;">Ver Todo</button><button onclick="document.getElementById('filtro-categoria').value='pokémon'; document.getElementById('filtro-categoria').dispatchEvent(new Event('change'))" style="padding: 0.6em 1.2em; border: none; border-radius: 6px; background: #111; color: white; cursor: pointer;">Pokémon</button><button onclick="document.getElementById('filtro-categoria').value='one piece'; document.getElementById('filtro-categoria').dispatchEvent(new Event('change'))" style="padding: 0.6em 1.2em; border: none; border-radius: 6px; background: #111; color: white; cursor: pointer;">One Piece</button><button onclick="document.getElementById('filtro-categoria').value='digimon'; document.getElementById('filtro-categoria').dispatchEvent(new Event('change'))" style="padding: 0.6em 1.2em; border: none; border-radius: 6px; background: #111; color: white; cursor: pointer;">Digimon</button><button onclick="document.getElementById('filtro-categoria').value='dragon ball'; document.getElementById('filtro-categoria').dispatchEvent(new Event('change'))" style="padding: 0.6em 1.2em; border: none; border-radius: 6px; background: #111; color: white; cursor: pointer;">Dragon Ball</button><button onclick="document.getElementById('filtro-categoria').value='naruto'; document.getElementById('filtro-categoria').dispatchEvent(new Event('change'))" style="padding: 0.6em 1.2em; border: none; border-radius: 6px; background: #111; color: white; cursor: pointer;">Naruto</button><button onclick="document.getElementById('filtro-categoria').value='yu-gi-oh'; document.getElementById('filtro-categoria').dispatchEvent(new Event('change'))" style="padding: 0.6em 1.2em; border: none; border-radius: 6px; background: #111; color: white; cursor: pointer;">Yu-Gi-Oh</button><button onclick="document.getElementById('filtro-categoria').value='magic'; document.getElementById('filtro-categoria').dispatchEvent(new Event('change'))" style="padding: 0.6em 1.2em; border: none; border-radius: 6px; background: #111; color: white; cursor: pointer;">Magic</button><button onclick="document.getElementById('filtro-categoria').value='otros'; document.getElementById('filtro-categoria').dispatchEvent(new Event('change'))" style="padding: 0.6em 1.2em; border: none; border-radius: 6px; background: #111; color: white; cursor: pointer;">Otros</button></div>
 <section style="flex: 1;">
 <h1>Todo - Cartas y Cajas</h1>
 <div class="grid" id="productos-todo"></div>
@@ -52,5 +74,15 @@
 <footer>
     © 2025 Uzutcg - Todos los derechos reservados
   </footer>
-</body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const cat = params.get('categoria');
+  if (cat) {
+    [...document.querySelectorAll('#botones-categorias button')].forEach(btn => {
+      btn.style.background = btn.textContent.toLowerCase().replace(/ /g, '-') === cat ? '#f0b400' : '#111';
+    });
+  }
+});
+</script></body>
 </html>
