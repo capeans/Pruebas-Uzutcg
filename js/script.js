@@ -10,24 +10,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!track || !leftBtn || !rightBtn) return;
 
-leftBtn.addEventListener("click", () => {
-  const scrollAmount = track.clientWidth * 0.8;
-  if (track.scrollLeft <= 0) {
-    track.scrollLeft = track.scrollWidth;
-  } else {
-    track.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-  }
-});
+    leftBtn.addEventListener("click", () => {
+      const scrollAmount = track.clientWidth * 0.8;
+      if (track.scrollLeft <= 0) {
+        track.scrollLeft = track.scrollWidth;
+      } else {
+        track.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      }
+    });
 
-rightBtn.addEventListener("click", () => {
-  const scrollAmount = track.clientWidth * 0.8;
-  if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
-    track.scrollLeft = 0;
-  } else {
-    track.scrollBy({ left: scrollAmount, behavior: "smooth" });
-  }
-});
-
+    rightBtn.addEventListener("click", () => {
+      const scrollAmount = track.clientWidth * 0.8;
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
+        track.scrollLeft = 0;
+      } else {
+        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    });
   });
 
   // Productos (cajas/cartas/todo)
@@ -131,5 +130,3 @@ function abrirImagenGrande(src) {
   overlay.addEventListener("click", () => document.body.removeChild(overlay));
   document.body.appendChild(overlay);
 }
-
-

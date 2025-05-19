@@ -266,7 +266,6 @@ aside input[type="range"] {
   gap: 1.5em;
   padding: 1em 0;
 }
-
 .carousel-track::-webkit-scrollbar {
   display: none;
 }

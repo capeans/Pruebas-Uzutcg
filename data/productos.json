@@ -18,7 +18,6 @@
     "stock": 10,
     "imagen": "img/cajas/digimon/2.png",
     "descripcion": "Caja clásica de la colección base de Pokémon. Contiene 36 sobres de cartas."
-    
   },
   {
     "tipo": "caja",
@@ -27,7 +26,7 @@
     "idioma": "Español",
     "precio": 60,
     "stock": 10,
-    "imagen": "img/cajas/one piece/1.png",
+    "imagen": "img/cajas/one_piece/1.png",
     "descripcion": "Caja clásica de la colección base de Pokémon. Contiene 36 sobres de cartas."
   },
   {
@@ -37,7 +36,7 @@
     "idioma": "Español",
     "precio": 65,
     "stock": 10,
-    "imagen": "img/cajas/one piece/2.png",
+    "imagen": "img/cajas/one_piece/2.png",
     "descripcion": "Caja clásica de la colección base de Pokémon. Contiene 36 sobres de cartas."
   },
   {
