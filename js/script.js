@@ -1,3 +1,4 @@
+
 let productos = []; // global
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -77,23 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
         aplicarFiltros();
       });
     });
-
-  // Carrusel funcional
-  document.querySelectorAll(".carousel-container").forEach(container => {
-    const track = container.querySelector(".carousel-track");
-    const left = container.querySelector(".carousel-btn.left");
-    const right = container.querySelector(".carousel-btn.right");
-
-    if (!track || !left || !right) return;
-
-    left.addEventListener("click", () => {
-      track.scrollBy({ left: -300, behavior: "smooth" });
-    });
-
-    right.addEventListener("click", () => {
-      track.scrollBy({ left: 300, behavior: "smooth" });
-    });
-  });
 });
 
 function abrirImagenGrande(src) {
