@@ -117,6 +117,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const precioValor = document.getElementById('precio-valor');
       const filtroIdioma = document.getElementById('filtro-idioma');
 
+      
+      const params = new URLSearchParams(window.location.search);
+      const categoriaInicial = params.get('categoria');
+      if (categoriaInicial && filtroCategoria) {
+        filtroCategoria.value = categoriaInicial.replace(/-/g, " ");
+      }
+    
+
       productos = data.filter(p =>
         (esCajas && p.tipo === 'caja') ||
         (esCartas && p.tipo === 'carta') ||

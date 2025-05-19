@@ -298,3 +298,21 @@ aside input[type="range"] {
 }
 .carousel-btn.left { left: 0.5em; }
 .carousel-btn.right { right: 0.5em; }
+
+
+/* Unificación de alturas mínimas y anchuras */
+header, footer {
+  max-width: 1200px;
+  margin: auto;
+  width: 100%;
+}
+
+main {
+  max-width: 1200px;
+  margin: auto;
+}
+
+aside {
+  min-width: 260px;
+  max-width: 260px;
+}
