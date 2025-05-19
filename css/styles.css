@@ -299,55 +299,7 @@ aside input[type="range"] {
 .carousel-btn.left { left: 0.5em; }
 .carousel-btn.right { right: 0.5em; }
 
-
-/* Ajuste de carrusel para flechas externas */
-  position: relative;
-  margin: 2em auto;
-  width: 100%;
-  overflow: hidden;
-  padding: 0 3em;
-}
-
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.6);
-  color: white;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 2;
-  border-radius: 50%;
-  padding: 0.3em 0.6em;
-}
-
-.carousel-btn.left {
-  left: -1em;
-}
-
-.carousel-btn.right {
-  right: -1em;
-}
-
-
-/* Asegurar visibilidad de flechas */
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  background: #111;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  padding: 0.3em 0.6em;
-  z-index: 10;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-}
-.carousel-btn.left { left: -2em; }
-.carousel-btn.right { right: -2em; }
-
-
-/* Carrusel: Asegurar visibilidad de flechas */
+.carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -358,10 +310,14 @@ aside input[type="range"] {
   cursor: pointer;
   border-radius: 50%;
   padding: 0.4em 0.6em;
-  z-index: 99;
+  z-index: 10;
+}
+.carousel-btn.left {
+  left: 0.5em;
+}
+.carousel-btn.right {
+  right: 0.5em;
 }
 
-  left: 0;
-}
-  right: 0;
-}
+
+
