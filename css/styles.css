@@ -301,7 +301,6 @@ aside input[type="range"] {
 
 
 /* Ajuste de carrusel para flechas externas */
-.carousel-container {
   position: relative;
   margin: 2em auto;
   width: 100%;
@@ -309,7 +308,6 @@ aside input[type="range"] {
   padding: 0 3em;
 }
 
-.carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -333,7 +331,6 @@ aside input[type="range"] {
 
 
 /* Asegurar visibilidad de flechas */
-.carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -351,7 +348,6 @@ aside input[type="range"] {
 
 
 /* Carrusel: Asegurar visibilidad de flechas */
-.carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -365,9 +361,7 @@ aside input[type="range"] {
   z-index: 99;
 }
 
-.carousel-btn.left {
   left: 0;
 }
-.carousel-btn.right {
   right: 0;
 }
